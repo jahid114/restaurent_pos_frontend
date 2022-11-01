@@ -1,7 +1,7 @@
 .login-box {
   width: 320px;
-  height: 420px;
-  background: rgba(0, 0, 0, 0.4);
+  height: 400px;
+  background: #252526;
   color: #fff;
   top: 50%;
   left: 50%;
@@ -19,6 +19,7 @@
   position: absolute;
   top: -50px;
   left: calc(50% - 50px);
+  color: #594f8d;
 }
 
 h1 {
@@ -48,12 +49,13 @@ input[type='password'] {
   height: 40px;
   color: #fff;
   font-size: 16px;
-  opacity: 1;
+  opacity: 0.8;
 }
 .login-box input[type='text']::placeholder,
 input[type='password']::placeholder {
+  color: #fff;
   opacity: 0.5;
-  color: black;
+  font-size: small;
 }
 
 .login-box input[type='submit'] {
@@ -64,10 +66,11 @@ input[type='password']::placeholder {
   color: #fff;
   font-size: 18px;
   border-radius: 20px;
+  margin-top: 40px;
 }
 
 .login-box input[type='submit']:hover {
   cursor: pointer;
-  background: #1c8adb;
+  background: purple;
   color: white;
 }

@@ -1,0 +1,127 @@
+.wrapper {
+  display: flex;
+  position: relative;
+  background: #f3f5f9;
+}
+
+.wrapper .sidebar {
+  width: 220px;
+  height: 100%;
+  background: #252526;
+  padding: 30px 0px;
+  position: fixed;
+}
+
+.wrapper .sidebar h2 {
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.wrapper .sidebar .list {
+  margin-left: -35px;
+}
+.wrapper .sidebar .list li {
+  padding: 15px;
+  border-bottom: 1px solid #bdb8d7;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.wrapper .sidebar .list li a {
+  color: #bdb8d7;
+  display: block;
+}
+
+.wrapper .sidebar .list li .fas {
+  width: 25px;
+}
+
+.wrapper .sidebar .list li:hover {
+  background-color: #594f8d;
+}
+
+.wrapper .sidebar .list li:hover a {
+  color: #fff;
+}
+
+.wrapper .main_content {
+  width: 100%;
+  margin-left: 220px;
+}
+
+.wrapper .main_content .header {
+  display: flex;
+  padding: 20px;
+  background: #fff;
+  color: #717171;
+  border-bottom: 1px solid #e0e4e8;
+  justify-content: space-between;
+}
+
+.wrapper .main_content .create_user {
+  width: 100px;
+  height: 40px;
+  background: #9186b6;
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 22px;
+  font-size: 14px;
+  font-family: Helvetica, sans-serif;
+}
+
+.wrapper .main_content .create_user:hover {
+  box-shadow: 2px 2px 3px lightblue;
+  border: none;
+}
+
+.wrapper .main_content .info {
+  margin: 20px;
+  color: #717171;
+  line-height: 25px;
+}
+
+.wrapper .main_content .title {
+  margin-left: 28px;
+  margin-top: 8px;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.wrapper .main_content .info div {
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-top: 8px;
+  height: 100px;
+  min-width: 200px !important;
+  padding-top: 5px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif !important;
+  color: white;
+  font-weight: bold;
+}
+
+.nav-item {
+  margin-right: 50px;
+}
+
+#Sales-info {
+  background-color: #28a745;
+}
+
+#Expense-info {
+  background-color: #17a2b8;
+}
+
+#Order-info {
+  background-color: #dc3545;
+}
+
+#Todays-reservation {
+  background-color: #ffc107;
+}
