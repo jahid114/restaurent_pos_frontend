@@ -1,7 +1,7 @@
 import '../../pages/login_page/login.css';
 import { useNavigate } from 'react-router-dom';
 
-const UserForm = () => {
+const ItemForm = () => {
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,4 +32,4 @@ const UserForm = () => {
   );
 };
 
-export default UserForm;
+export default ItemForm;

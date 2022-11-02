@@ -11,10 +11,23 @@
   box-sizing: border-box;
   border-radius: 10px;
 }
-
+.expense-box-size {
+  width: 350px;
+  height: 500px;
+  top: 43%;
+  left: 50%;
+  padding: 30px 30px;
+}
+.reservation-box-size {
+  width: 380px;
+  height: 530px;
+  top: 43%;
+  left: 50%;
+  padding: 20px 30px;
+}
 .login-box-size {
-  width: 320px;
-  height: 400px;
+  width: 350px;
+  height: 450px;
   top: 50%;
   left: 50%;
   padding: 70px 30px;
@@ -30,7 +43,7 @@
   top: 45%;
   left: 50%;
   width: 350px;
-  height: 450px;
+  height: 430px;
   padding: 40px 30px;
 }
 .avatar {
@@ -57,7 +70,7 @@ h1 {
 }
 
 .form-box input,
-textare,
+textarea,
 select {
   width: 100%;
   margin-bottom: 20px;
@@ -67,12 +80,15 @@ select {
 input[type='password'],
 input[type='date'],
 input[type='number'],
-input[type='time'] {
+input[type='time'],
+input[type='tel'],
+select,
+textarea {
   border: none;
   border-bottom: 1px solid #fff;
   background: transparent;
   outline: none;
-  height: 40px;
+  height: 35px;
   color: #fff;
   font-size: 16px;
   opacity: 0.8;
@@ -89,7 +105,7 @@ textarea::placeholder {
 }
 
 .form-box select option {
-  background-color: #594f8d;
+  background-color: #252526;
   color: white;
 }
 
@@ -101,11 +117,15 @@ textarea::placeholder {
   color: #fff;
   font-size: 18px;
   border-radius: 20px;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .form-box input[type='submit']:hover {
   cursor: pointer;
   background: #1c8adb;
   color: white;
+}
+
+.reservation-box-size input[type='submit'] {
+  margin-top: 10px;
 }

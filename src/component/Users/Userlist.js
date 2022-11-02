@@ -11,6 +11,9 @@ const Userlist = () => {
               Name
             </th>
             <th className='text-center' scope='col'>
+              Role
+            </th>
+            <th className='text-center' scope='col'>
               Delete
             </th>
           </tr>
@@ -21,6 +24,7 @@ const Userlist = () => {
               1
             </th>
             <td className='text-center'>Mark</td>
+            <td className='text-center'>User</td>
             <td className='text-center'>
               <i className='bi bi-trash icon'></i>
             </td>
