@@ -1,21 +1,62 @@
 import './login.css';
 import avatar from './avatar.png';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import useAuth from '../../hooks/UseAuth';
+
+const processResponse = (response, setAuth, navigate) => {
+  console.log(response);
+  if(response.status == "success" && response.token) {
+    setAuth(response.token, response.data.user.isAdmin);
+    navigate('/home');
+  }
+  else {
+    alert(response.message);
+  }
+}
 
 const Login = () => {
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const authentication = useAuth();
+  console.log("*************", authentication);
   const navigate = useNavigate();
-  const handleSubmit = () => {
-    navigate('/home');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch("https://pointofsalerestaurant.herokuapp.com/api/users/login", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify({name, password})
+    })
+    .then(res => res.json())
+    .then(res => {processResponse(res, authentication.setAuthr, navigate)})
+    .catch(err => console.log("error", err));
   };
+
   return (
     <div className='login-box'>
       <img src={avatar} className='avatar' alt='avatar' />
       <h1>Login Here</h1>
       <form onSubmit={handleSubmit}>
         <p>Username</p>
-        <input type='text' name='username' placeholder='Enter Username' />
+        <input 
+          type='text' 
+          name='username' 
+          placeholder='Enter Username'  
+          value={name}
+          onChange={(e) => setName(e.target.value)}  
+        />
         <p>Password</p>
-        <input type='password' name='password' placeholder='Enter Password' />
+        <input 
+          type='password'  
+          name='password' 
+          placeholder='Enter Password' 
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}  
+        />
         <input type='submit' name='submit' value='Login' />
       </form>
     </div>
