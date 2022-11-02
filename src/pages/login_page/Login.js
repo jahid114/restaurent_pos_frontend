@@ -3,10 +3,11 @@ import avatar from './avatar.png';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import useAuth from '../../hooks/UseAuth';
-
+import { Navigate } from 'react-router-dom';
+import config  from '../../config';
 const processResponse = (response, setAuth, navigate) => {
   console.log(response);
-  if(response.status == "success" && response.token) {
+  if(response.status === "success" && response.token) {
     setAuth(response.token, response.data.user.isAdmin);
     navigate('/home');
   }
@@ -24,7 +25,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("https://pointofsalerestaurant.herokuapp.com/api/users/login", {
+    fetch(config.apiurl + "/users/login", {
       method: "POST",
       headers: {
         "Content-type": "application/json"
@@ -35,6 +36,10 @@ const Login = () => {
     .then(res => {processResponse(res, authentication.setAuthr, navigate)})
     .catch(err => console.log("error", err));
   };
+
+  if(authentication.auth.isLoggedIn) {
+    return <Navigate to="/home" replace />
+  }
 
   return (
     <div className='form-box login-box-size '>

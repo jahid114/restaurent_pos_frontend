@@ -10,6 +10,7 @@ import Reservation from './component/Reservation';
 import User from './component/Users';
 import UserForm from './component/Users/UserForm';
 import ItemForm from './component/Items/ItemForm';
+import useAuth from './hooks/UseAuth';
 
 function App() {
   return (
