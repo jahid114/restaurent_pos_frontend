@@ -5,6 +5,7 @@ import User from "./user"
 
 const Userlist = () => {
   const [users, setUsers] = useState([]);
+  const [deleted, setDeleted] = useState("random");
   const authorization = useAuth();
   useEffect(() => {
     console.log("token", authorization.auth.token)
@@ -20,7 +21,7 @@ const Userlist = () => {
     .then(resp => {
       setUsers(resp.data.users);
     })
-  }, [])
+  }, [deleted])
   return (
     <div className='container first'>
       {!users.length ? "Loading Users": 
@@ -43,6 +44,8 @@ const Userlist = () => {
             <User
               id={indx}
               name={user.name}
+              _id={user._id}
+              setDeleted={setDeleted}
             />
           ))}
         </tbody>

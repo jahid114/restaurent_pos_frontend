@@ -21,18 +21,31 @@ const getIsAdmin = () => {
   return isAdmin;
 }
 
+const getName = () => {
+  const nameString = localStorage.getItem('name');
+  const name = JSON.parse(nameString);
+  return name;
+}
+
+const saveName = (name) => {
+  localStorage.setItem("name", JSON.stringify(name));
+}
+
 export const AuthProvider = ({ children }) => {
 
   const [auth, setAuth] = useState({
     isLoggedIn: getToken()? true : false,
     isAdmin: getIsAdmin(),
-    name: "",
+    name: getName(),
     token: getToken()
   });
 
   const setAuthr = (token, isAdmin = false, name="") => {
-    console.log("token", token)
-    if(token != undefined && isAdmin != undefined) {saveToken(token); saveIsAdmin(isAdmin);}
+    if(token != undefined && isAdmin != undefined && name != undefined) {
+      saveToken(token);
+      saveIsAdmin(isAdmin);
+      saveName(name);
+    }
     setAuth({token, isLoggedIn: getToken()? true : false,
       isAdmin: getIsAdmin(), name});
       
