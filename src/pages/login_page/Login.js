@@ -6,9 +6,8 @@ import useAuth from '../../hooks/UseAuth';
 import { Navigate } from 'react-router-dom';
 import config  from '../../config';
 const processResponse = (response, setAuth, navigate) => {
-  console.log(response);
   if(response.status === "success" && response.token) {
-    setAuth(response.token, response.data.user.isAdmin);
+    setAuth(response.token, response.data.user.isAdmin, response.data.user.name);
     navigate('/home');
   }
   else {
@@ -20,7 +19,7 @@ const Login = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const authentication = useAuth();
-  console.log("*************", authentication);
+
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {

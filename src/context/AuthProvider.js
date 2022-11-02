@@ -26,14 +26,19 @@ export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({
     isLoggedIn: getToken()? true : false,
     isAdmin: getIsAdmin(),
+    name: "",
+    token: getToken()
   });
 
-  const setAuthr = (token, isAdmin = false) => {
+  const setAuthr = (token, isAdmin = false, name="") => {
+    console.log("token", token)
     if(token != undefined && isAdmin != undefined) {saveToken(token); saveIsAdmin(isAdmin);}
-    setAuth({isLoggedIn: getToken()? true : false,
-      isAdmin: getIsAdmin(),});
-    
+    setAuth({token, isLoggedIn: getToken()? true : false,
+      isAdmin: getIsAdmin(), name});
+      
   }
+
+  console.log("*******", auth);
 
   return <AuthContext.Provider value={{ auth, setAuthr }}>{children}</AuthContext.Provider>;
 };
