@@ -1,0 +1,31 @@
+.flex-box {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px;
+  padding-right: 20px;
+  height: 50px;
+}
+.flex-box .heading {
+  margin-left: 25px;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 400;
+}
+.flex-box .btnClass {
+  width: 120px;
+  height: 40px;
+  background: #594f8d;
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 22px;
+  font-size: 16px;
+  margin-right: 40px;
+  margin-top: 10px;
+  line-height: 0.8;
+}
+
+.flex-box .btnClass :hover {
+  box-shadow: 2px 2px 3px #9186b6;
+  border: none;
+}

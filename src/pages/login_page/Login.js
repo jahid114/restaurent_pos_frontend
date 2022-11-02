@@ -8,7 +8,7 @@ const Login = () => {
     navigate('/home');
   };
   return (
-    <div className='login-box'>
+    <div className='form-box login-box-size '>
       <img src={avatar} className='avatar' alt='avatar' />
       <h1>Login Here</h1>
       <form onSubmit={handleSubmit}>

@@ -3,36 +3,20 @@
   width: 100%;
   height: 100%;
 }
-.form-box {
+.login-box {
+  width: 350px;
+  height: 460px;
   background: #252526;
   color: #fff;
+  top: 45%;
+  left: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
   border-radius: 10px;
+  padding: 70px 30px;
 }
 
-.login-box-size {
-  width: 320px;
-  height: 400px;
-  top: 50%;
-  left: 50%;
-  padding: 70px 30px;
-}
-.create-user-box-size {
-  width: 350px;
-  height: 460px;
-  top: 45%;
-  left: 50%;
-  padding: 70px 30px;
-}
-.item-box-size {
-  top: 45%;
-  left: 50%;
-  width: 350px;
-  height: 450px;
-  padding: 40px 30px;
-}
 .avatar {
   width: 100px;
   height: 100px;
@@ -40,7 +24,6 @@
   position: absolute;
   top: -50px;
   left: calc(50% - 50px);
-  color: #594f8d;
 }
 
 h1 {
@@ -50,24 +33,20 @@ h1 {
   font-size: 22px;
 }
 
-.form-box p {
+.login-box p {
   margin: 0;
   padding: 0;
   font-weight: bold;
 }
 
-.form-box input,
-textare,
-select {
+.login-box input {
   width: 100%;
   margin-bottom: 20px;
 }
 
-.form-box input[type='text'],
+.login-box input[type='text'],
 input[type='password'],
-input[type='date'],
-input[type='number'],
-input[type='time'] {
+input[type='confirm_password'] {
   border: none;
   border-bottom: 1px solid #fff;
   background: transparent;
@@ -75,25 +54,16 @@ input[type='time'] {
   height: 40px;
   color: #fff;
   font-size: 16px;
+  opacity: 1;
+}
+.login-box input[type='text']::placeholder,
+input[type='password']::placeholder,
+input[type='confirm_password']::placeholder {
+  color: #fff;
   opacity: 0.8;
 }
-.form-box input[type='text']::placeholder,
-input[type='password']::placeholder,
-input[type='date']::placeholder,
-input[type='number']::placeholder,
-input[type='time']::placeholder,
-textarea::placeholder {
-  color: #fff;
-  opacity: 0.5;
-  font-size: small;
-}
 
-.form-box select option {
-  background-color: #594f8d;
-  color: white;
-}
-
-.form-box input[type='submit'] {
+.login-box input[type='submit'] {
   border: none;
   outline: none;
   height: 40px;
@@ -101,10 +71,9 @@ textarea::placeholder {
   color: #fff;
   font-size: 18px;
   border-radius: 20px;
-  margin-top: 30px;
 }
 
-.form-box input[type='submit']:hover {
+.login-box input[type='submit']:hover {
   cursor: pointer;
   background: #1c8adb;
   color: white;
