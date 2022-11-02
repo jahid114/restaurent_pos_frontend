@@ -1,7 +1,15 @@
-import React from 'react';
+import TitleAndButton from '../TitleAndButton';
+import Reservationlist from './ReservationList';
 
 const Reservation = () => {
-  return <div>Reservation</div>;
+  const handleButtonSubmit = () => {};
+  return (
+    <>
+      <TitleAndButton title='Reservation' buttonName='Take Reservation' onSubmitButton={handleButtonSubmit} />
+      <hr />
+      <Reservationlist />
+    </>
+  );
 };
 
 export default Reservation;

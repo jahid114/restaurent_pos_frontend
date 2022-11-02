@@ -32,6 +32,7 @@
 .wrapper .sidebar .list li a {
   color: #bdb8d7;
   display: block;
+  text-decoration: none;
 }
 
 .wrapper .sidebar .list li .fas {
@@ -48,33 +49,18 @@
 
 .wrapper .main_content {
   width: 100%;
+  height: 100vh;
   margin-left: 220px;
 }
 
 .wrapper .main_content .header {
   display: flex;
-  padding: 20px;
+  padding: 20px 0px;
+  padding-left: 40px;
   background: #fff;
   color: #717171;
   border-bottom: 1px solid #e0e4e8;
   justify-content: space-between;
-}
-
-.wrapper .main_content .create_user {
-  width: 100px;
-  height: 40px;
-  background: #9186b6;
-  color: white;
-  cursor: pointer;
-  border: none;
-  border-radius: 22px;
-  font-size: 14px;
-  font-family: Helvetica, sans-serif;
-}
-
-.wrapper .main_content .create_user:hover {
-  box-shadow: 2px 2px 3px lightblue;
-  border: none;
 }
 
 .wrapper .main_content .info {
@@ -84,10 +70,10 @@
 }
 
 .wrapper .main_content .title {
-  margin-left: 28px;
-  margin-top: 8px;
-  font-size: 25px;
-  font-weight: 500;
+  margin-left: 25px;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .wrapper .main_content .info div {
@@ -124,4 +110,21 @@
 
 #Todays-reservation {
   background-color: #ffc107;
+}
+.table-head {
+  background-color: #594f8d;
+  color: white;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.first {
+  margin-top: 20px;
+  width: 80%;
+}
+.icon {
+  font-size: 1.5rem;
+  color: red;
 }

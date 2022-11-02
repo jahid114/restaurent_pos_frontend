@@ -8,6 +8,8 @@ import Order from './component/Order';
 import Receipts from './component/Receipts';
 import Reservation from './component/Reservation';
 import User from './component/Users';
+import UserForm from './component/Users/UserForm';
+import ItemForm from './component/Items/ItemForm';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
         <Route path='receipts' element={<Receipts />} />
         <Route path='expense' element={<Expense />} />
         <Route path='reservation' element={<Reservation />} />
+        <Route path='userForm' element={<UserForm />} />
+        <Route path='itemForm' element={<ItemForm />} />
       </Route>
     </Routes>
   );

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-const index = () => {
-  <script src='https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js'></script>;
+
+const SideNav = () => {
   return (
     <div className='sidebar'>
       <h2>Rest_POS</h2>
@@ -27,17 +27,17 @@ const index = () => {
         </li>
         <li>
           <Link to='/home/receipts'>
-            <i className='fas fa-project-diagram'></i>Receipts
+            <i className='fas fa-sharp fa-solid fa-file-invoice'></i>Receipts
           </Link>
         </li>
         <li>
           <Link to='/home/reservation'>
-            <i className='fas fa-blog'></i>Reservations
+            <i className='fas fa-address-book'></i>Reservations
           </Link>
         </li>
         <li>
           <Link to='/home/expense'>
-            <i className='fas fa-address-book'></i>Expense
+            <i className='fas fa-solid fa-dollar-sign'></i>Expense
           </Link>
         </li>
       </ul>
@@ -45,4 +45,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default SideNav;

@@ -1,11 +1,14 @@
-const index = () => {
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import { useNavigate } from 'react-router-dom';
+
+const NavBar = () => {
+  const navigate = useNavigate();
+  const handleLogOut = () => {
+    navigate('/login');
+  };
   return (
     <div class='header'>
       <h3>Welcome</h3>
-      <div class='button'>
-        <button class='create_user'>Create Order</button>
-      </div>
-
       <li class='nav-item dropdown'>
         <a
           href='#'
@@ -18,7 +21,7 @@ const index = () => {
         >
           Md Janea Alam
         </a>
-        <div class='dropdown-menu' aria-labelledby='navbarDropdown'>
+        <div onClick={handleLogOut} class='dropdown-menu' aria-labelledby='navbarDropdown'>
           <a class='dropdown-item' href='#'>
             Logout
           </a>
@@ -28,4 +31,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default NavBar;
