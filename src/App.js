@@ -10,7 +10,9 @@ import Reservation from './component/Reservation';
 import User from './component/Users';
 import UserForm from './component/Users/UserForm';
 import ItemForm from './component/Items/ItemForm';
-import useAuth from './hooks/UseAuth';
+import ExpenseForm from './component/Expense/ExpenseForm';
+import ReservationForm from './component/Reservation/ReservationForm.js';
+// import useAuth from './hooks/UseAuth';
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
         <Route path='reservation' element={<Reservation />} />
         <Route path='userForm' element={<UserForm />} />
         <Route path='itemForm' element={<ItemForm />} />
+        <Route path='expenseForm' element={<ExpenseForm />} />
+        <Route path='reservationForm' element={<ReservationForm />} />
       </Route>
     </Routes>
   );

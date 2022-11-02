@@ -5,7 +5,6 @@ const User = () => {
   const navigate = useNavigate();
   const handleButtonSubmit = () => {
     navigate('/home/userForm');
-    console.log('Add user button clicked');
   };
   return (
     <>

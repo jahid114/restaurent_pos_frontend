@@ -18,6 +18,7 @@ const UserForm = () => {
           <input type='text' name='username' placeholder='Enter Username' />
           <p>Password</p>
           <input type='password' name='password' placeholder='Enter Password' />
+          <p>Confirm Password</p>
           <input type='password' name='confirm_password' placeholder='Confirm Password'></input>
           <input type='submit' name='submit' value='Create User' />
         </form>
