@@ -25,42 +25,28 @@ const getName = () => {
   const nameString = localStorage.getItem('name');
   const name = JSON.parse(nameString);
   return name;
-}
+};
 
 const saveName = (name) => {
-  localStorage.setItem("name", JSON.stringify(name));
-}
+  localStorage.setItem('name', JSON.stringify(name));
+};
 
 export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({
     isLoggedIn: getToken() ? true : false,
     isAdmin: getIsAdmin(),
     name: getName(),
-    token: getToken()
+    token: getToken(),
   });
 
-<<<<<<< HEAD
-  const setAuthr = (token, isAdmin = false) => {
-    if (token !== undefined && isAdmin !== undefined) {
-      saveToken(token);
-      saveIsAdmin(isAdmin);
-    }
-    setAuth({ isLoggedIn: getToken() ? true : false, isAdmin: getIsAdmin() });
-  };
-=======
-  const setAuthr = (token, isAdmin = false, name="") => {
-    if(token != undefined && isAdmin != undefined && name != undefined) {
+  const setAuthr = (token, isAdmin = false, name = '') => {
+    if (token !== undefined && isAdmin !== undefined && name !== undefined) {
       saveToken(token);
       saveIsAdmin(isAdmin);
       saveName(name);
     }
-    setAuth({token, isLoggedIn: getToken()? true : false,
-      isAdmin: getIsAdmin(), name});
-      
-  }
->>>>>>> 88d49d37bf4ae1028c99f034f1d2fe2d46844d5f
-
-  console.log("*******", auth);
+    setAuth({ token, isLoggedIn: getToken() ? true : false, isAdmin: getIsAdmin(), name });
+  };
 
   return <AuthContext.Provider value={{ auth, setAuthr }}>{children}</AuthContext.Provider>;
 };

@@ -1,16 +1,19 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/UseAuth';
 import config from '../../config';
+import Item from './item';
 
 const Itemlist = () => {
   const navigate = useNavigate();
   const authentication = useAuth();
-  const [itemList, setItemsList] = useState();
+  const [itemList, setItemsList] = useState([]);
+  const [deleted, setDeleted] = useState('random');
 
   const processItemList = (response, navigate, setAuth, setItemsList) => {
     console.log(response);
-    if (response.status === 200) {
+    if (response.status === 'success') {
       setItemsList(response.data.items);
     } else {
       localStorage.clear();
@@ -30,53 +33,50 @@ const Itemlist = () => {
         processItemList(res, navigate, authentication.setAuthr, setItemsList);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [deleted]);
 
   return (
     <div className='container first'>
-      <table className='table table-bordered'>
-        <thead className='table-head'>
-          <tr>
-            <th className='text-center' scope='col'>
-              ID
-            </th>
-            <th className='text-center' scope='col'>
-              Name
-            </th>
-            <th className='text-center' scope='col'>
-              Category
-            </th>
-            <th className='text-center' scope='col'>
-              Price
-            </th>
-            <th className='text-center' scope='col'>
-              Edit
-            </th>
-            <th className='text-center' scope='col'>
-              Delete
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {itemList &&
-            itemList.map((item) => (
-              <tr key={item.id}>
-                <th className='text-center' scope='row'>
-                  {item.id}
-                </th>
-                <td className='text-center'>{item.name}</td>
-                <td className='text-center'>{item.catagory}</td>
-                <td className='text-center'>{item.price}</td>
-                <td className='text-center'>
-                  <i class='bi bi-pencil-square icon' style={{ color: '#594F8D' }}></i>
-                </td>
-                <td className='text-center'>
-                  <i className='bi bi-trash icon'></i>
-                </td>
-              </tr>
+      {!itemList.length ? (
+        <h6>Loading Item ....</h6>
+      ) : (
+        <table className='table table-bordered'>
+          <thead className='table-head'>
+            <tr>
+              <th className='text-center' scope='col'>
+                ID
+              </th>
+              <th className='text-center' scope='col'>
+                Name
+              </th>
+              <th className='text-center' scope='col'>
+                Category
+              </th>
+              <th className='text-center' scope='col'>
+                Price
+              </th>
+              <th className='text-center' scope='col'>
+                Edit
+              </th>
+              <th className='text-center' scope='col'>
+                Delete
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {itemList.map((item, id) => (
+              <Item
+                id={id}
+                name={item.name}
+                _id={item._id}
+                catagory={item.catagory}
+                price={item.price}
+                setDeleted={setDeleted}
+              />
             ))}
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      )}
     </div>
   );
 };

@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import config from '../../config';
 import useAuth from '../../hooks/UseAuth';
-const User = (prop) => {
-  const { id, name, _id, setDeleted } = prop;
+const Item = (prop) => {
+  const { id, name, catagory, price, _id, setDeleted } = prop;
   const [disable, setDisable] = useState(false);
   const authorization = useAuth();
   const handleDelete = () => {
     setDisable(true);
-    fetch(config.apiurl + '/users/' + _id, {
+    fetch(config.apiurl + '/items/' + _id, {
       method: 'DELETE',
       headers: {
         Authorization: 'Bearer ' + authorization.auth.token,
@@ -29,6 +29,13 @@ const User = (prop) => {
         {id + 1}
       </th>
       <td className='text-center'>{name}</td>
+      <td className='text-center'>{catagory}</td>
+      <td className='text-center'>{price}</td>
+      <td className='text-center'>
+        <button className='button' disabled={disable} onClick={handleDelete}>
+          <i class='bi bi-pencil-square icon' style={{ color: '#594F8D' }}></i>
+        </button>
+      </td>
       <td className='text-center'>
         <button className='button' disabled={disable} onClick={handleDelete}>
           <i className='bi bi-trash icon'></i>
@@ -38,4 +45,4 @@ const User = (prop) => {
   );
 };
 
-export default User;
+export default Item;

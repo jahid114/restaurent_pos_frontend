@@ -45,12 +45,12 @@ const Reservation = (prop) => {
       </td>
       <td className='text-center'>{people}</td>
       <td className='text-center'>
-        <button disabled={disable} onClick={handleEdit}>
-          <i class='bi bi-pencil-square icon' style={{ color: '#594F8D' }}></i>
+        <button className='button' disabled={disable} onClick={handleEdit}>
+          <i className='bi bi-pencil-square icon' style={{ color: '#594F8D' }}></i>
         </button>
       </td>
       <td className='text-center'>
-        <button disabled={disable} onClick={handleDelete}>
+        <button className='button' disabled={disable} onClick={handleDelete}>
           <i className='bi bi-trash icon'></i>
         </button>
       </td>

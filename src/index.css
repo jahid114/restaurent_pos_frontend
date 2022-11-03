@@ -3,6 +3,8 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: scroll;
   list-style: none;
   text-decoration: none;
   font-family: 'Josefin Sans', sans-serif;

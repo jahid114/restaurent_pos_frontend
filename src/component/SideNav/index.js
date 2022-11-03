@@ -30,11 +30,6 @@ const SideNav = () => {
           </Link>
         </li>
         <li>
-          <Link to='/home/receipts'>
-            <i className='fas fa-sharp fa-solid fa-file-invoice'></i>Receipts
-          </Link>
-        </li>
-        <li>
           <Link to='/home/reservation'>
             <i className='fas fa-address-book'></i>Reservations
           </Link>
