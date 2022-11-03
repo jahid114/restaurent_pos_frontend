@@ -41,7 +41,10 @@ const Orderlist = () => {
               <br />
             </td>
             <td className='text-center'>02-11-2022</td>
-            <td className='text-center'>paid</td>
+            <td className='text-center'>
+              <p>paid</p>
+              <button className='btn button-color'>Print Bill</button>
+            </td>
             <td className='text-center'>1500</td>
             <td className='text-center'>
               <i class='bi bi-pencil-square icon' style={{ color: '#594F8D' }}></i>
