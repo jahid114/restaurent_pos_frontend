@@ -4,12 +4,17 @@ import useAuth from '../../hooks/UseAuth';
 import { useNavigate } from 'react-router-dom';
 
 const Reservation = (prop) => {
-  const { people, clientName, _id, reservationDate, contactNumber, setDeleted, id } = prop;
+  const { people, clientName, _id, reservationDate, contactNumber, setDeleted, id, deleted } = prop;
   const reservationDateObject = new Date(reservationDate);
   const [disable, setDisable] = useState(false);
   const authorization = useAuth();
   const navigate = useNavigate();
+
   const handleEdit = () => {
+<<<<<<< HEAD
+=======
+    console.log({ ...prop });
+>>>>>>> a5049deb2425834cf5463216ef438859bcb9dc20
     navigate('/home/reservationForm', {
       state: { people, clientName, _id, reservationDate, contactNumber },
     });
@@ -34,7 +39,7 @@ const Reservation = (prop) => {
   };
 
   return (
-    <tr>
+    <tr style={{ backgroundColor: deleted === _id ? '#f08b8b' : '' }}>
       <th className='text-center' scope='row'>
         {id + 1}
       </th>
