@@ -64,6 +64,7 @@ const Reservationlist = () => {
                 reservationDate={reservation.reservationDate}
                 contactNumber={reservation.contactNumber}
                 setDeleted={setDeleted}
+                deleted={deleted}
               />
             ))}
           </tbody>
