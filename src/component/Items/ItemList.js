@@ -12,7 +12,6 @@ const Itemlist = () => {
   const [deleted, setDeleted] = useState('random');
 
   const processItemList = (response, navigate, setAuth, setItemsList) => {
-    console.log(response);
     if (response.status === 'success') {
       setItemsList(response.data.items);
     } else {
@@ -66,6 +65,7 @@ const Itemlist = () => {
           <tbody>
             {itemList.map((item, id) => (
               <Item
+                key={item._id}
                 id={id}
                 name={item.name}
                 _id={item._id}

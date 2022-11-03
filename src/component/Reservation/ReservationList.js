@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
 import useAuth from '../../hooks/UseAuth';
 import config from '../../config';
@@ -8,8 +9,6 @@ const Reservationlist = () => {
   const [deleted, setDeleted] = useState('random');
   const authorization = useAuth();
   useEffect(() => {
-    console.log('token', authorization.auth.token);
-
     fetch(config.apiurl + '/reservation', {
       headers: {
         // 'Content-Type': 'application/json',
@@ -19,7 +18,6 @@ const Reservationlist = () => {
       .then((resp) => resp.json())
       .then((resp) => {
         setReservations(resp.data.reservations);
-        console.log(resp.data.reservations);
       });
   }, [deleted]);
 
@@ -57,6 +55,7 @@ const Reservationlist = () => {
           <tbody>
             {reservations.map((reservation, indx) => (
               <Reservation
+                key={reservation._id}
                 id={indx}
                 people={reservation.people}
                 _id={reservation._id}

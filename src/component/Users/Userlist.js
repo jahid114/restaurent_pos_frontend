@@ -41,7 +41,7 @@ const Userlist = () => {
           </thead>
           <tbody>
             {users.map((user, indx) => (
-              <User id={indx} name={user.name} _id={user._id} setDeleted={setDeleted} />
+              <User key={user._id} id={indx} name={user.name} _id={user._id} setDeleted={setDeleted} />
             ))}
           </tbody>
         </table>

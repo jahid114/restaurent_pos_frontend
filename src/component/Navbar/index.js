@@ -4,33 +4,34 @@ import config from '../../config';
 import useAuth from '../../hooks/UseAuth';
 
 const processLogout = (response, navigate, setAuth) => {
-  if(response.status === "success") {
+  if (response.status === 'success') {
     // clear local storage
-    localStorage.clear()
+    localStorage.clear();
 
     // update the auth storage
     setAuth();
-    navigate("/login")
+    navigate('/login');
   }
-} 
+};
 
 const NavBar = () => {
   const navigate = useNavigate();
   const authentication = useAuth();
 
   const handleLogOut = () => {
-    fetch(config.apiurl + "/users/logout", {
-      credentials: "include",
-     
+    fetch(config.apiurl + '/users/logout', {
+      credentials: 'include',
     })
-    .then(res => res.json())
-    .then(res => {processLogout(res, navigate, authentication.setAuthr)})
-    .catch(err => console.log(err));
+      .then((res) => res.json())
+      .then((res) => {
+        processLogout(res, navigate, authentication.setAuthr);
+      })
+      .catch((err) => console.log(err));
   };
   return (
-    <div class='header'>
+    <div className='header'>
       <h3>Welcome</h3>
-      <li class='nav-item dropdown'>
+      <li className='nav-item dropdown'>
         <a
           href='#'
           class='nav-link dropdown-toggle'
@@ -43,7 +44,7 @@ const NavBar = () => {
           {authentication.auth.name}
         </a>
         <div onClick={handleLogOut} class='dropdown-menu' aria-labelledby='navbarDropdown'>
-          <a class='dropdown-item' href='#'>
+          <a className='dropdown-item' href='#'>
             Logout
           </a>
         </div>

@@ -11,52 +11,52 @@ const CreateOrderForm = () => {
   };
   return (
     <div className='parent'>
-      <div class='mainContent container'>
-        <div class='head row'>
+      <div className='mainContent container'>
+        <div className='head row'>
           <p>Create Order</p>
         </div>
-        <div class='row content mt-9'>
-          <div class='col-md-6'>
-            <div class='row'>
-              <div class='input-group col-sm-6 ml-n3'>
-                <input type='text' class='form-control' placeholder='Search' />
-                <div class='input-group-append'>
-                  <button class='btn btn-dark' type='submit'>
+        <div className='row content mt-9'>
+          <div className='col-md-6'>
+            <div className='row'>
+              <div className='input-group col-sm-6 ml-n3'>
+                <input type='text' className='form-control' placeholder='Search' />
+                <div className='input-group-append'>
+                  <button className='btn btn-dark' type='submit'>
                     Search
                   </button>
                 </div>
               </div>
-              <div class='dropdown col-sm-6'>
-                <button type='button' class='btn btn-dark dropdown-toggle select-option' data-toggle='dropdown'>
+              <div className='dropdown col-sm-6'>
+                <button type='button' className='btn btn-dark dropdown-toggle select-option' data-toggle='dropdown'>
                   Select Catagory
                 </button>
-                <div class='dropdown-menu'>
-                  <a class='dropdown-item' href='#'>
+                <div className='dropdown-menu'>
+                  <a className='dropdown-item' href='#'>
                     Link 1
                   </a>
-                  <a class='dropdown-item' href='#'>
+                  <a className='dropdown-item' href='#'>
                     Link 2
                   </a>
-                  <a class='dropdown-item' href='#'>
+                  <a className='dropdown-item' href='#'>
                     Link 3
                   </a>
                 </div>
               </div>
             </div>
-            <div class='row mr-1'>
-              <table id='order' class='rounded'>
+            <div className='row mr-1'>
+              <table id='order' className='rounded'>
                 <tr>
-                  <th class='pt-1 pb-1'>ID</th>
-                  <th class='pt-1 pb-1'>Name</th>
-                  <th class='pt-1 pb-1'>Price</th>
-                  <th class='pt-1 pb-1'></th>
+                  <th className='pt-1 pb-1'>ID</th>
+                  <th className='pt-1 pb-1'>Name</th>
+                  <th className='pt-1 pb-1'>Price</th>
+                  <th className='pt-1 pb-1'></th>
                 </tr>
                 <tr>
-                  <td class='pt-1 pb-1'>1</td>
-                  <td class='pt-1 pb-1'>Hamburger grande</td>
-                  <td class='pt-1 pb-1'>$250</td>
-                  <td class='pt-2 pb-2'>
-                    <button class='In-order btn'>In Order</button>
+                  <td className='pt-1 pb-1'>1</td>
+                  <td className='pt-1 pb-1'>Hamburger grande</td>
+                  <td className='pt-1 pb-1'>$250</td>
+                  <td className='pt-2 pb-2'>
+                    <button className='In-order btn'>In Order</button>
                   </td>
                 </tr>
                 <tr>
@@ -64,36 +64,36 @@ const CreateOrderForm = () => {
                   <td>Hamburger grande</td>
                   <td>$250</td>
                   <td className='pt-2 pb-2'>
-                    <button class='add-order btn'>+</button>
+                    <button className='add-order btn'>+</button>
                   </td>
                 </tr>
               </table>
             </div>
-            <div class='row'>
-              <nav aria-label='Pagination' class='pagination-block'>
-                <ul class='pagination'>
-                  <li class='page-item disabled'>
-                    <a class='page-link' href='#' tabindex='-1'>
+            <div className='row'>
+              <nav aria-label='Pagination' className='pagination-block'>
+                <ul className='pagination'>
+                  <li className='page-item disabled'>
+                    <a className='page-link' href='#' tabindex='-1'>
                       Previous
                     </a>
                   </li>
-                  <li class='page-item'>
-                    <a class='page-link' href='#'>
+                  <li className='page-item'>
+                    <a className='page-link' href='#'>
                       1
                     </a>
                   </li>
-                  <li class='page-item active'>
-                    <a class='page-link' href='#'>
-                      2 <span class='sr-only'>(current)</span>
+                  <li className='page-item active'>
+                    <a className='page-link' href='#'>
+                      2 <span className='sr-only'>(current)</span>
                     </a>
                   </li>
-                  <li class='page-item'>
-                    <a class='page-link' href='#'>
+                  <li className='page-item'>
+                    <a className='page-link' href='#'>
                       3
                     </a>
                   </li>
-                  <li class='page-item'>
-                    <a class='page-link' href='#'>
+                  <li className='page-item'>
+                    <a className='page-link' href='#'>
                       Next
                     </a>
                   </li>
@@ -101,40 +101,40 @@ const CreateOrderForm = () => {
               </nav>
             </div>
           </div>
-          <div class='col-md-6'>
-            <div class='row ml-1'>
-              <div class='total-board col-sm-12'>
+          <div className='col-md-6'>
+            <div className='row ml-1'>
+              <div className='total-board col-sm-12'>
                 <h2>Total $1870.00</h2>
                 <p>9 Items in Order</p>
               </div>
             </div>
-            <div class='row ml-1'>
+            <div className='row ml-1'>
               <table id='total-list' class='rounded'>
                 <tr>
-                  <th class='pt-1 pb-1'>Product</th>
-                  <th class='pt-1 pb-1'>Units</th>
-                  <th class='pt-1 pb-1'></th>
-                  <th class='pt-1 pb-1'>Total</th>
-                  <th class='pt-1 pb-1'></th>
+                  <th className='pt-1 pb-1'>Product</th>
+                  <th className='pt-1 pb-1'>Units</th>
+                  <th className='pt-1 pb-1'></th>
+                  <th className='pt-1 pb-1'>Total</th>
+                  <th className='pt-1 pb-1'></th>
                 </tr>
                 <tr>
-                  <td class='pt-1 pb-1'>HEINEKEN 750ML</td>
-                  <td class='pt-1 pb-1'>3</td>
-                  <td class='pt-1 pb-1'>
-                    <button class='increase btn'>+</button>
-                    <button class='decrease btn bg-danger'>-</button>
+                  <td className='pt-1 pb-1'>HEINEKEN 750ML</td>
+                  <td className='pt-1 pb-1'>3</td>
+                  <td className='pt-1 pb-1'>
+                    <button className='increase btn'>+</button>
+                    <button className='decrease btn bg-danger'>-</button>
                   </td>
-                  <td class='pt-1 pb-1'>$450</td>
-                  <td class='pt-1 pb-1'>
+                  <td className='pt-1 pb-1'>$450</td>
+                  <td className='pt-1 pb-1'>
                     <button className='button'>
-                      <i class='bi bi-trash' style={{ 'font-size': '1.5rem', color: 'red' }}></i>
+                      <i className='bi bi-trash' style={{ 'font-size': '1.5rem', color: 'red' }}></i>
                     </button>
                   </td>
                 </tr>
               </table>
             </div>
-            <div class='table row'>
-              <button class='submit btn button-color mb-2' onClick={handleSubmit}>
+            <div className='table row'>
+              <button className='submit btn button-color mb-2' onClick={handleSubmit}>
                 Submit
               </button>
             </div>

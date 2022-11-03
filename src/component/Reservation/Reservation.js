@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
 import config from '../../config';
 import useAuth from '../../hooks/UseAuth';
 import { useNavigate } from 'react-router-dom';
@@ -11,8 +10,6 @@ const Reservation = (prop) => {
   const authorization = useAuth();
   const navigate = useNavigate();
   const handleEdit = () => {
-    // return <Navigate to='/reservationForm' replace />;
-    console.log({ ...prop });
     navigate('/home/reservationForm', {
       state: { people, clientName, _id, reservationDate, contactNumber },
     });
