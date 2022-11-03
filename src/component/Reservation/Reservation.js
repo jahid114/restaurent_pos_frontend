@@ -1,13 +1,22 @@
 import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import config from '../../config';
 import useAuth from '../../hooks/UseAuth';
+import { useNavigate } from 'react-router-dom';
+
 const Reservation = (prop) => {
   const { people, clientName, _id, reservationDate, contactNumber, setDeleted, id } = prop;
   const reservationDateObject = new Date(reservationDate);
   const [disable, setDisable] = useState(false);
   const authorization = useAuth();
-
-  const handleEdit = () => {};
+  const navigate = useNavigate();
+  const handleEdit = () => {
+    // return <Navigate to='/reservationForm' replace />;
+    console.log({ ...prop });
+    navigate('/home/reservationForm', {
+      state: { people, clientName, _id, reservationDate, contactNumber },
+    });
+  };
 
   const handleDelete = () => {
     setDisable(true);
@@ -36,7 +45,6 @@ const Reservation = (prop) => {
       <td className='text-center'>{contactNumber}</td>
       <td className='text-center'>
         <p>{reservationDateObject.toDateString()}</p>
-
         <p>
           {reservationDateObject.getHours()}
           {':'}
