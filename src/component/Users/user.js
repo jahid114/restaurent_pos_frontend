@@ -34,7 +34,6 @@ const User = (prop) => {
             <button disabled={disable} onClick={handleDelete}>
                 <i className='bi bi-trash icon'></i>
             </button>
-            <li>{_id}</li>
         </td>
     </tr>   
     );

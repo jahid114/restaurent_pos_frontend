@@ -1,7 +1,34 @@
+import { useState, useEffect } from "react";
+import useAuth from "../../hooks/UseAuth";
+import config from "../../config";
+import Reservation from "./Reservation";
+
 const Reservationlist = () => {
+  const [reservations, setReservations] = useState([]);
+  const [deleted, setDeleted] = useState("random");
+  const authorization = useAuth();
+  useEffect(() => {
+    console.log("token", authorization.auth.token)
+
+    fetch(config.apiurl + "/reservation", {
+      headers: {
+        // 'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' +  authorization.auth.token
+      } 
+    }
+    )
+    .then(resp => resp.json())
+    .then(resp => {
+      setReservations(resp.data.reservations);
+      console.log(resp.data.reservations)
+    })
+  }, [deleted])
+
   return (
+    
     <div className='container first'>
-      <table className='table table-bordered'>
+      {!reservations.length? "Loading Reservations" : 
+      <table className='table table-bordered' overflow>
         <thead className='table-head'>
           <tr>
             <th className='text-center' scope='col'>
@@ -28,26 +55,20 @@ const Reservationlist = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th className='text-center' scope='row'>
-              1
-            </th>
-            <td className='text-center'>Muntachir munim</td>
-            <td className='text-center'>01300000000</td>
-            <td className='text-center'>
-              <p>02-11-2022</p>
-              <p>08:00 PM</p>
-            </td>
-            <td className='text-center'>15</td>
-            <td className='text-center'>
-              <i class='bi bi-pencil-square icon' style={{ color: '#594F8D' }}></i>
-            </td>
-            <td className='text-center'>
-              <i className='bi bi-trash icon'></i>
-            </td>
-          </tr>
+        {reservations.map((reservation, indx) => (
+          <Reservation
+          id={indx}
+          people={reservation.people}
+          _id={reservation._id}
+          clientName={reservation.clientName}
+          reservationDate={reservation.reservationDate}
+          contactNumber={reservation.contactNumber}
+          setDeleted={setDeleted}
+          />
+        ))}
         </tbody>
       </table>
+}
     </div>
   );
 };
