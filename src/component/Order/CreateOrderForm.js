@@ -12,23 +12,23 @@ const CreateOrderForm = () => {
   return (
     <div className='parent'>
       <div class='mainContent container'>
-        <div class='header row'>
+        <div class='head row'>
           <p>Create Order</p>
         </div>
-        <div class='row content'>
+        <div class='row content mt-9'>
           <div class='col-md-6'>
-            <div class='row  mr-1'>
-              <div class='input-group col-sm-6'>
+            <div class='row'>
+              <div class='input-group col-sm-6 ml-n3'>
                 <input type='text' class='form-control' placeholder='Search' />
                 <div class='input-group-append'>
-                  <button class='btn btn-success' type='submit'>
+                  <button class='btn btn-dark' type='submit'>
                     Search
                   </button>
                 </div>
               </div>
               <div class='dropdown col-sm-6'>
-                <button type='button' class='btn btn-success dropdown-toggle' data-toggle='dropdown'>
-                  Select
+                <button type='button' class='btn btn-dark dropdown-toggle select-option' data-toggle='dropdown'>
+                  Select Catagory
                 </button>
                 <div class='dropdown-menu'>
                   <a class='dropdown-item' href='#'>
@@ -55,7 +55,7 @@ const CreateOrderForm = () => {
                   <td class='pt-1 pb-1'>1</td>
                   <td class='pt-1 pb-1'>Hamburger grande</td>
                   <td class='pt-1 pb-1'>$250</td>
-                  <td class='pt-1 pb-1'>
+                  <td class='pt-2 pb-2'>
                     <button class='In-order btn'>In Order</button>
                   </td>
                 </tr>
@@ -63,7 +63,7 @@ const CreateOrderForm = () => {
                   <td>2</td>
                   <td>Hamburger grande</td>
                   <td>$250</td>
-                  <td>
+                  <td className='pt-2 pb-2'>
                     <button class='add-order btn'>+</button>
                   </td>
                 </tr>
@@ -126,7 +126,7 @@ const CreateOrderForm = () => {
                   </td>
                   <td class='pt-1 pb-1'>$450</td>
                   <td class='pt-1 pb-1'>
-                    <button>
+                    <button className='button'>
                       <i class='bi bi-trash' style={{ 'font-size': '1.5rem', color: 'red' }}></i>
                     </button>
                   </td>
@@ -134,7 +134,7 @@ const CreateOrderForm = () => {
               </table>
             </div>
             <div class='table row'>
-              <button class='submit btn mb-2' onClick={handleSubmit}>
+              <button class='submit btn button-color mb-2' onClick={handleSubmit}>
                 Submit
               </button>
             </div>

@@ -1,19 +1,26 @@
 .mainContent {
-  border: 1px solid #e0e4e8;
   border-radius: 3px;
-  width: 100vw;
+  min-width: 100%;
+  width: auto;
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.mainContent .header {
+.select-option {
+  position: absolute;
+  height: 35px;
+  right: 0;
+}
+
+.mainContent .head {
   background: #f3f5f9;
-  color: #717171;
+  color: black;
+  padding-left: 25px;
   display: block;
   border-bottom: 1px solid #e0e4e8;
 }
-.mainContent .header p {
+.mainContent .head p {
   padding: 10px 0 0 10px;
   font-family: Helvetica, sans-serif;
   font-size: 18px;
@@ -54,7 +61,7 @@ tr td {
 }
 
 .total-board {
-  background-color: #28a745;
+  background-color: #594f8d;
   width: 100%;
   color: white;
   padding: 20px 0 10px 20px;
@@ -102,9 +109,14 @@ tr td {
 }
 
 .submit {
-  right: 15px;
-  background-color: #28a745 !important;
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-left: 45%;
+  margin-right: auto;
   font-weight: bold;
   position: absolute;
+  height: 35px;
+}
+
+.button-color {
+  background-color: #594f8d;
 }
