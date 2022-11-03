@@ -40,7 +40,7 @@ const NavBar = () => {
           aria-haspopup='true'
           aria-expanded='false'
         >
-          Md Janea Alam
+          {authentication.auth.name}
         </a>
         <div onClick={handleLogOut} class='dropdown-menu' aria-labelledby='navbarDropdown'>
           <a class='dropdown-item' href='#'>

@@ -1,6 +1,30 @@
+import { useEffect, useState } from "react";
+import config from "../../config";
+import useAuth from "../../hooks/UseAuth";
+import User from "./user"
+
 const Userlist = () => {
+  const [users, setUsers] = useState([]);
+  const [deleted, setDeleted] = useState("random");
+  const authorization = useAuth();
+  useEffect(() => {
+    console.log("token", authorization.auth.token)
+
+    fetch(config.apiurl + "/users", {
+      headers: {
+        // 'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' +  authorization.auth.token
+      } 
+    }
+    )
+    .then(resp => resp.json())
+    .then(resp => {
+      setUsers(resp.data.users);
+    })
+  }, [deleted])
   return (
     <div className='container first'>
+      {!users.length ? "Loading Users": 
       <table className='table table-bordered'>
         <thead className='table-head'>
           <tr>
@@ -11,26 +35,22 @@ const Userlist = () => {
               Name
             </th>
             <th className='text-center' scope='col'>
-              Role
-            </th>
-            <th className='text-center' scope='col'>
               Delete
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th className='text-center' scope='row'>
-              1
-            </th>
-            <td className='text-center'>Mark</td>
-            <td className='text-center'>User</td>
-            <td className='text-center'>
-              <i className='bi bi-trash icon'></i>
-            </td>
-          </tr>
+          {users.map((user, indx) => ( 
+            <User
+              id={indx}
+              name={user.name}
+              _id={user._id}
+              setDeleted={setDeleted}
+            />
+          ))}
         </tbody>
       </table>
+  }
     </div>
   );
 };
