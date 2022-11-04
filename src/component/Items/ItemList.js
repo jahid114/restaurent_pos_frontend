@@ -43,7 +43,7 @@ const Itemlist = () => {
           <thead className='table-head'>
             <tr>
               <th className='text-center' scope='col'>
-                ID
+                #
               </th>
               <th className='text-center' scope='col'>
                 Name
@@ -72,6 +72,7 @@ const Itemlist = () => {
                 catagory={item.catagory}
                 price={item.price}
                 setDeleted={setDeleted}
+                deleted={deleted}
               />
             ))}
           </tbody>

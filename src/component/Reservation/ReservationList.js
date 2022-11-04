@@ -30,7 +30,7 @@ const Reservationlist = () => {
           <thead className='table-head'>
             <tr>
               <th className='text-center' scope='col'>
-                ID
+                #
               </th>
               <th className='text-center' scope='col'>
                 Client Name

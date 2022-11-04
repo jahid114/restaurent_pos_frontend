@@ -29,7 +29,7 @@ const Userlist = () => {
           <thead className='table-head'>
             <tr>
               <th className='text-center' scope='col'>
-                ID
+                #
               </th>
               <th className='text-center' scope='col'>
                 Name
@@ -41,7 +41,14 @@ const Userlist = () => {
           </thead>
           <tbody>
             {users.map((user, indx) => (
-              <User key={user._id} id={indx} name={user.name} _id={user._id} setDeleted={setDeleted} />
+              <User
+                key={user._id}
+                id={indx}
+                name={user.name}
+                _id={user._id}
+                setDeleted={setDeleted}
+                deleted={deleted}
+              />
             ))}
           </tbody>
         </table>
