@@ -27,7 +27,7 @@ const Expenselist = () => {
           <thead className='table-head'>
             <tr>
               <th className='text-center' scope='col'>
-                ID
+                #
               </th>
               <th className='text-center' scope='col'>
                 Category
@@ -49,7 +49,7 @@ const Expenselist = () => {
                 <th className='text-center' scope='row'>
                   {id + 1}
                 </th>
-                <td className='text-center'>{expense.catagory}</td>
+                <td className='text-center'>{expense.category}</td>
                 <td className='text-center'>{expense.description}</td>
                 <td className='text-center'>{expense.price}</td>
                 <td className='text-center'>{new Date(expense.date).toDateString()}</td>
