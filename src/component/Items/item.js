@@ -2,7 +2,7 @@ import { useState } from 'react';
 import config from '../../config';
 import useAuth from '../../hooks/UseAuth';
 const Item = (prop) => {
-  const { id, name, catagory, price, _id, setDeleted } = prop;
+  const { id, name, catagory, price, _id, setDeleted, deleted } = prop;
   const [disable, setDisable] = useState(false);
   const authorization = useAuth();
   const handleDelete = () => {
@@ -26,7 +26,7 @@ const Item = (prop) => {
   const handleEdit = () => {};
 
   return (
-    <tr>
+    <tr style={{ backgroundColor: deleted === _id ? '#f08b8b' : '' }}>
       <th className='text-center' scope='row'>
         {id + 1}
       </th>

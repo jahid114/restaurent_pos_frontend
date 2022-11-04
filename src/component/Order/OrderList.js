@@ -5,7 +5,7 @@ const Orderlist = () => {
         <thead className='table-head'>
           <tr>
             <th className='text-center' scope='col'>
-              ID
+              #
             </th>
             <th className='text-center' scope='col'>
               Item info
