@@ -11,10 +11,6 @@ const Reservation = (prop) => {
   const navigate = useNavigate();
 
   const handleEdit = () => {
-<<<<<<< HEAD
-=======
-    console.log({ ...prop });
->>>>>>> a5049deb2425834cf5463216ef438859bcb9dc20
     navigate('/home/reservationForm', {
       state: { people, clientName, _id, reservationDate, contactNumber },
     });

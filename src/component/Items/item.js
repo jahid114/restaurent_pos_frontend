@@ -23,6 +23,8 @@ const Item = (prop) => {
       .catch((err) => console.log('error', err));
   };
 
+  const handleEdit = () => {};
+
   return (
     <tr>
       <th className='text-center' scope='row'>
@@ -32,7 +34,7 @@ const Item = (prop) => {
       <td className='text-center'>{catagory}</td>
       <td className='text-center'>{price}</td>
       <td className='text-center'>
-        <button className='button' disabled={disable} onClick={handleDelete}>
+        <button className='button' disabled={disable} onClick={handleEdit}>
           <i class='bi bi-pencil-square icon' style={{ color: '#594F8D' }}></i>
         </button>
       </td>

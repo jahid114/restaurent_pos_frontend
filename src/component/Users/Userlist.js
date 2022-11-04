@@ -23,7 +23,7 @@ const Userlist = () => {
   return (
     <div className='container first'>
       {!users.length ? (
-        'Loading Users'
+        'Loading Users . . .'
       ) : (
         <table className='table table-bordered'>
           <thead className='table-head'>
