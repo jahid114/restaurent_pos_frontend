@@ -206,21 +206,6 @@ const CreateOrderForm = () => {
                     deleteItem={deleteItem}
                   />
                 ))}
-
-                {/* <tr>
-                  <td className='pt-1 pb-1'>HEINEKEN 750ML</td>
-                  <td className='pt-1 pb-1'>3</td>
-                  <td className='pt-1 pb-1'>
-                    <button className='increase btn'>+</button>
-                    <button className='decrease btn bg-danger'>-</button>
-                  </td>
-                  <td className='pt-1 pb-1'>$450</td>
-                  <td className='pt-1 pb-1'>
-                    <button className='button'>
-                      <i className='bi bi-trash' style={{ 'font-size': '1.5rem', color: 'red' }}></i>
-                    </button>
-                  </td>
-                </tr> */}
               </table>
             </div>
             <div className='table row'>
