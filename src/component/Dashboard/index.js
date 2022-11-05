@@ -1,4 +1,5 @@
 import TitleAndButton from '../TitleAndButton';
+import TodaysReservationlist from './TodaysReservation';
 import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
@@ -20,7 +21,7 @@ const Dashboard = () => {
       <div className='m-3 ml-4' id='Todays-reservation'>
         <TitleAndButton title='Todays Reservation' buttonName='Show more' onSubmitButton={handleButtonSubmit} />
         <hr />
-        <p className='ml-5'>No Reservation for today</p>
+        <TodaysReservationlist />
       </div>
     </>
   );
