@@ -81,7 +81,7 @@
   margin-left: 8px;
   margin-right: 8px;
   margin-top: 8px;
-  height: 100px;
+  height: 120px;
   min-width: 200px !important;
   padding-top: 5px;
   display: flex;
@@ -99,18 +99,23 @@
 
 #Sales-info {
   background-color: #28a745;
+  border-radius: 5px;
 }
 
 #Expense-info {
   background-color: #17a2b8;
+  border-radius: 5px;
 }
 
 #Order-info {
   background-color: #dc3545;
+  border-radius: 5px;
 }
 
 #Todays-reservation {
+  border: 1px solid #dddddd;
   background-color: #ffc107;
+  border-radius: 5px;
 }
 .table-head {
   background-color: #594f8d;
@@ -129,6 +134,7 @@
   font-size: 1.5rem;
   color: red;
 }
+
 .button {
   background: none;
   border: none;
@@ -136,4 +142,11 @@
 
 .button-color {
   background-color: #594f8d;
+}
+
+.disabled-button {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: 'not-allowed';
 }

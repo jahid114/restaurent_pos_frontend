@@ -25,15 +25,15 @@ const ReservationForm = () => {
   const [clientName, setClientName] = useState(state ? state.clientName : '');
   const [people, setPeople] = useState(state ? state.people : 0);
   const [contactNumber, setContactNumber] = useState(state ? state.contactNumber : '');
-
   const [date, setDate] = useState(state ? daate : '');
   const [time, setTime] = useState(state ? tiime : '');
+  const [disable, setDisable] = useState(false);
   const authorization = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    setDisable(true);
     fetch(config.apiurl + `/reservation/${state ? state._id : 'create-reservation'}`, {
       method: `${state ? 'PATCH' : 'POST'}`,
       headers: {
@@ -51,10 +51,15 @@ const ReservationForm = () => {
       .then((res) => {
         if (res.status === 'success') {
           alert(state ? 'Reservation Updated!' : 'Reservation Created');
+          setDisable(false);
           navigate('/home/reservation');
+        } else {
+          setDisable(false);
+          alert(res.message);
         }
       })
       .catch((err) => console.log('error', err));
+    setDisable(false);
   };
   return (
     <div className='parent'>
@@ -95,7 +100,13 @@ const ReservationForm = () => {
           <input type='date' name='date' id='date' required value={date} onChange={(e) => setDate(e.target.value)} />
           <p>Reservation Time</p>
           <input type='time' name='time' id='time' required value={time} onChange={(e) => setTime(e.target.value)} />
-          <input type='submit' name='submit' value='Submit' />
+          <input
+            type='submit'
+            name='submit'
+            value='Submit'
+            disabled={disable}
+            style={{ backgroundColor: disable ? '#999999' : '' }}
+          />
         </form>
       </div>
     </div>

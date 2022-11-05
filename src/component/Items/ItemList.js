@@ -37,7 +37,7 @@ const Itemlist = () => {
   return (
     <div className='container first'>
       {!itemList.length ? (
-        <h6>Loading Item ....</h6>
+        <h6>Loading Item . . . .</h6>
       ) : (
         <table className='table table-bordered'>
           <thead className='table-head'>

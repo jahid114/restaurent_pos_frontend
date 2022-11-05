@@ -34,7 +34,7 @@ const NavBar = () => {
       <li className='nav-item dropdown'>
         <a
           href='#'
-          class='nav-link dropdown-toggle'
+          className='nav-link dropdown-toggle'
           id='navbarDropdown'
           role='button'
           data-toggle='dropdown'
@@ -43,7 +43,7 @@ const NavBar = () => {
         >
           {authentication.auth.name}
         </a>
-        <div onClick={handleLogOut} class='dropdown-menu' aria-labelledby='navbarDropdown'>
+        <div onClick={handleLogOut} className='dropdown-menu' aria-labelledby='navbarDropdown'>
           <a className='dropdown-item' href='#'>
             Logout
           </a>
