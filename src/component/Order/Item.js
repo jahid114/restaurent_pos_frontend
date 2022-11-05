@@ -1,4 +1,5 @@
 const Item = (prop) => {
+  // eslint-disable-next-line no-unused-vars
   const { id, name, catagory, price, _id, isInOrder, addToOrderedItemList } = prop;
 
   return (
