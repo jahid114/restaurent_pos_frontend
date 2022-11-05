@@ -12,6 +12,8 @@ import ItemForm from './component/Items/ItemForm';
 import ExpenseForm from './component/Expense/ExpenseForm';
 import ReservationForm from './component/Reservation/ReservationForm.js';
 import CreateOrderForm from './component/Order/CreateOrderForm';
+import Receipt from './component/Order/Reciept';
+
 // import useAuth from './hooks/UseAuth';
 
 function App() {
@@ -32,6 +34,7 @@ function App() {
         <Route path='expenseForm' element={<ExpenseForm />} />
         <Route path='reservationForm' element={<ReservationForm />} />
         <Route path='createOrder' element={<CreateOrderForm />} />
+        <Route path='receipt' element={<Receipt />} />
       </Route>
     </Routes>
   );

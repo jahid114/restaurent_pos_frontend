@@ -2,10 +2,13 @@ import { useEffect, useState } from 'react';
 import useAuth from '../../hooks/UseAuth';
 import config from '../../config';
 import Order from './Order';
+import BasicDocument from './Reciept';
+import { useNavigate } from 'react-router-dom';
 
 const Orderlist = () => {
   const authorization = useAuth();
   const [orders, setOrders] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
     fetch(config.apiurl + '/orders', {
       headers: {
@@ -19,6 +22,19 @@ const Orderlist = () => {
         console.log(resp.data.orders);
       });
   }, []);
+
+  const handlePrintBill = (orderId) => {
+    const curOrder = { ...orders.find((order) => order._id === orderId) };
+    console.log(curOrder);
+    navigate('/home/receipt', {
+      state: {
+        items: curOrder.items,
+        totalPrice: curOrder.totalPrice,
+        _id: curOrder._id,
+        date: new Date(curOrder.orderCreatedAt).toDateString(),
+      },
+    });
+  };
 
   return (
     <div className='container first'>
@@ -57,6 +73,7 @@ const Orderlist = () => {
               _id={order._id}
               date={new Date(order.orderCreatedAt).toDateString()}
               id={indx}
+              handlePrintBill={handlePrintBill}
             />
             // id, status, totalPrice, _id, date, items
           ))}

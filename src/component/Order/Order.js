@@ -1,5 +1,5 @@
 const Order = (prop) => {
-  const { id, status, totalPrice, _id, date, items } = prop;
+  const { id, status, totalPrice, _id, date, items, handlePrintBill } = prop;
 
   console.log(items);
 
@@ -25,7 +25,9 @@ const Order = (prop) => {
           <td className='text-center'>{date}</td>
           <td className='text-center'>
             <p>{status}</p>
-            <button className='btn button-color'>Print Bill</button>
+            <button className='btn button-color' onClick={(e) => handlePrintBill(_id)}>
+              Print Bill
+            </button>
           </td>
           <td className='text-center'>{totalPrice}</td>
           {/* <td className='text-center'>

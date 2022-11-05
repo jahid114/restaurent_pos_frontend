@@ -60,7 +60,7 @@ const CreateOrderForm = () => {
           item: item._id,
           quantity: item.qty,
         })),
-        status: 'unpaid',
+        status: 'paid',
       }),
     })
       .then((res) => res.json())
