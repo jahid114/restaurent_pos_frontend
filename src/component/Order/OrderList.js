@@ -1,4 +1,60 @@
+import { useEffect, useState } from 'react';
+import useAuth from '../../hooks/UseAuth';
+import config from '../../config';
+import Order from './Order';
+import { useNavigate } from 'react-router-dom';
+
 const Orderlist = () => {
+  const [disable, setDisable] = useState(false);
+  const authorization = useAuth();
+  const [orders, setOrders] = useState([]);
+  const navigate = useNavigate();
+  useEffect(() => {
+    fetch(config.apiurl + '/orders', {
+      headers: {
+        // 'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + authorization.auth.token,
+      },
+    })
+      .then((resp) => resp.json())
+      .then((resp) => {
+        setOrders(resp.data.orders);
+      });
+  }, []);
+
+  const handlePrintBill = (orderId) => {
+    const curOrder = { ...orders.find((order) => order._id === orderId) };
+    navigate('/home/receipt', {
+      state: {
+        items: curOrder.items,
+        totalPrice: curOrder.totalPrice,
+        _id: curOrder._id,
+        date: new Date(curOrder.orderCreatedAt).toDateString(),
+      },
+    });
+  };
+
+  const handleDelete = (orderId) => {
+    setDisable(true);
+    fetch(config.apiurl + '/orders/' + orderId, {
+      method: 'DELETE',
+      headers: {
+        Authorization: 'Bearer ' + authorization.auth.token,
+      },
+    })
+      .then((res) => {
+        console.log(res);
+        if (res.status === 204) {
+          const updatedOrders = orders.filter((order) => order._id !== orderId);
+          setOrders(updatedOrders);
+          setDisable(false);
+        }
+      })
+      .catch((err) => {
+        setDisable(false);
+      });
+  };
+
   return (
     <div className='container first'>
       <table className='table table-bordered'>
@@ -19,40 +75,29 @@ const Orderlist = () => {
             <th className='text-center' scope='col'>
               Total Price
             </th>
-            <th className='text-center' scope='col'>
+            {/* <th className='text-center' scope='col'>
               Edit
-            </th>
+            </th>*/}
             <th className='text-center' scope='col'>
               Delete
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th className='text-center' scope='row'>
-              1
-            </th>
-            <td className='text-center'>
-              <i>Fish x 2</i>
-              <br />
-              <i>Meat x 3</i>
-              <br />
-              <i>Rice x 2</i>
-              <br />
-            </td>
-            <td className='text-center'>02-11-2022</td>
-            <td className='text-center'>
-              <p>paid</p>
-              <button className='btn button-color'>Print Bill</button>
-            </td>
-            <td className='text-center'>1500</td>
-            <td className='text-center'>
-              <i class='bi bi-pencil-square icon' style={{ color: '#594F8D' }}></i>
-            </td>
-            <td className='text-center'>
-              <i className='bi bi-trash icon'></i>
-            </td>
-          </tr>
+          {orders.map((order, indx) => (
+            <Order
+              // status={order.status}
+              items={order.items}
+              totalPrice={order.totalPrice}
+              _id={order._id}
+              date={new Date(order.orderCreatedAt).toLocaleDateString()}
+              id={indx}
+              handlePrintBill={handlePrintBill}
+              handleDelete={handleDelete}
+              disable={disable}
+            />
+            // id, status, totalPrice, _id, date, items
+          ))}
         </tbody>
       </table>
     </div>
