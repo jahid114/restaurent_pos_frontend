@@ -21,7 +21,7 @@ const TodaysReservationlist = () => {
   return (
     <div className='container first'>
       {!reservations.length ? (
-        'Loading Reservations . . .'
+        'No Reservation for today'
       ) : (
         <table className='table table-bordered'>
           <thead className='table-head'>
