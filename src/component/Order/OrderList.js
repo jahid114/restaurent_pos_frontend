@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import useAuth from '../../hooks/UseAuth';
 import config from '../../config';
 import Order from './Order';
-import BasicDocument from './Reciept';
 import { useNavigate } from 'react-router-dom';
 
 const Orderlist = () => {
+  const [disable, setDisable] = useState(false);
   const authorization = useAuth();
   const [orders, setOrders] = useState([]);
   const navigate = useNavigate();
@@ -19,13 +19,11 @@ const Orderlist = () => {
       .then((resp) => resp.json())
       .then((resp) => {
         setOrders(resp.data.orders);
-        console.log(resp.data.orders);
       });
   }, []);
 
   const handlePrintBill = (orderId) => {
     const curOrder = { ...orders.find((order) => order._id === orderId) };
-    console.log(curOrder);
     navigate('/home/receipt', {
       state: {
         items: curOrder.items,
@@ -34,6 +32,27 @@ const Orderlist = () => {
         date: new Date(curOrder.orderCreatedAt).toDateString(),
       },
     });
+  };
+
+  const handleDelete = (orderId) => {
+    setDisable(true);
+    fetch(config.apiurl + '/orders/' + orderId, {
+      method: 'DELETE',
+      headers: {
+        Authorization: 'Bearer ' + authorization.auth.token,
+      },
+    })
+      .then((res) => {
+        console.log(res);
+        if (res.status === 204) {
+          const updatedOrders = orders.filter((order) => order._id !== orderId);
+          setOrders(updatedOrders);
+          setDisable(false);
+        }
+      })
+      .catch((err) => {
+        setDisable(false);
+      });
   };
 
   return (
@@ -58,10 +77,10 @@ const Orderlist = () => {
             </th>
             {/* <th className='text-center' scope='col'>
               Edit
-            </th>
+            </th>*/}
             <th className='text-center' scope='col'>
               Delete
-            </th> */}
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -71,9 +90,11 @@ const Orderlist = () => {
               items={order.items}
               totalPrice={order.totalPrice}
               _id={order._id}
-              date={new Date(order.orderCreatedAt).toDateString()}
+              date={new Date(order.orderCreatedAt).toLocaleDateString()}
               id={indx}
               handlePrintBill={handlePrintBill}
+              handleDelete={handleDelete}
+              disable={disable}
             />
             // id, status, totalPrice, _id, date, items
           ))}

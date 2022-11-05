@@ -1,7 +1,5 @@
 const Order = (prop) => {
-  const { id, status, totalPrice, _id, date, items, handlePrintBill } = prop;
-
-  console.log(items);
+  const { id, status, totalPrice, _id, date, items, handlePrintBill, handleDelete, disable } = prop;
 
   return (
     <>
@@ -32,10 +30,12 @@ const Order = (prop) => {
           <td className='text-center'>{totalPrice}</td>
           {/* <td className='text-center'>
             <i class='bi bi-pencil-square icon' style={{ color: '#594F8D' }}></i>
-          </td>
+          </td>*/}
           <td className='text-center'>
-            <i className='bi bi-trash icon'></i>
-          </td> */}
+            <button className='button' onClick={() => handleDelete(_id)} disabled={disable}>
+              <i className='bi bi-trash icon'></i>
+            </button>
+          </td>
         </tr>
       )}
     </>
