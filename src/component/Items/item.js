@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import config from '../../config';
 import useAuth from '../../hooks/UseAuth';
+import { useNavigate } from 'react-router-dom';
+
 const Item = (prop) => {
+  const navigate = useNavigate();
+
   const { id, name, catagory, price, _id, setDeleted, deleted } = prop;
   const [disable, setDisable] = useState(false);
   const authorization = useAuth();
@@ -23,7 +27,11 @@ const Item = (prop) => {
       .catch((err) => console.log('error', err));
   };
 
-  const handleEdit = () => {};
+  const handleEdit = () => {
+    navigate('/home/itemForm', {
+      state: { name, catagory, _id, price },
+    });
+  };
 
   return (
     <tr style={{ backgroundColor: deleted === _id ? '#f08b8b' : '' }}>
@@ -35,7 +43,7 @@ const Item = (prop) => {
       <td className='text-center'>{price}</td>
       <td className='text-center'>
         <button className='button' disabled={disable} onClick={handleEdit}>
-          <i class='bi bi-pencil-square icon' style={{ color: '#594F8D' }}></i>
+          <i className='bi bi-pencil-square icon' style={{ color: '#594F8D' }}></i>
         </button>
       </td>
       <td className='text-center'>

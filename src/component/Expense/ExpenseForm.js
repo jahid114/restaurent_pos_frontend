@@ -35,6 +35,9 @@ const ExpenseForm = () => {
           alert('Expense added');
           setDisable(false);
           navigate('/home/expense');
+        } else {
+          setDisable(false);
+          alert(res.message);
         }
       })
       .catch((err) => console.log('error: ', err));
