@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react-hooks/exhaustive-deps */
 import '../../pages/login_page/login.css';
 import './formStyle.css';
 import { useNavigate } from 'react-router-dom';
@@ -38,7 +39,7 @@ const CreateOrderForm = () => {
     orderedItem.price += offset * orderedItem.unitPrice;
     if (orderedItem.qty < 0) orderedItem.qty = orderedItem.price = 0;
     setOrderedItemList((prevState) => {
-      return [...prevState.filter((item) => item._id != itemId), orderedItem].sort((f, s) => f.serial - s.serial);
+      return [...prevState.filter((item) => item._id !== itemId), orderedItem].sort((f, s) => f.serial - s.serial);
     });
   };
 
@@ -73,7 +74,7 @@ const CreateOrderForm = () => {
   };
 
   const deleteItem = (itemId) => {
-    setOrderedItemList((prev) => [...prev.filter((item) => item._id != itemId)]);
+    setOrderedItemList((prev) => [...prev.filter((item) => item._id !== itemId)]);
   };
 
   useEffect(() => {
