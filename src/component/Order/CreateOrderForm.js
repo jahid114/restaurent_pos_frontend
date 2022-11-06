@@ -117,13 +117,25 @@ const CreateOrderForm = () => {
                 </button>
                 <div className='dropdown-menu'>
                   <a className='dropdown-item' href='#'>
-                    Link 1
+                    Bengali
                   </a>
                   <a className='dropdown-item' href='#'>
-                    Link 2
+                    Indian
                   </a>
                   <a className='dropdown-item' href='#'>
-                    Link 3
+                    Chinese
+                  </a>
+                  <a className='dropdown-item' href='#'>
+                    Thaifood
+                  </a>
+                  <a className='dropdown-item' href='#'>
+                    Mexican
+                  </a>
+                  <a className='dropdown-item' href='#'>
+                    Arabian
+                  </a>
+                  <a className='dropdown-item' href='#'>
+                    Others
                   </a>
                 </div>
               </div>
@@ -148,7 +160,7 @@ const CreateOrderForm = () => {
                 ))}
               </table>
             </div>
-            <div className='row'>
+            {/* <div className='row'>
               <nav aria-label='Pagination' className='pagination-block'>
                 <ul className='pagination'>
                   <li className='page-item disabled'>
@@ -178,7 +190,7 @@ const CreateOrderForm = () => {
                   </li>
                 </ul>
               </nav>
-            </div>
+            </div> */}
           </div>
           <div className='col-md-6'>
             <div className='row ml-1'>

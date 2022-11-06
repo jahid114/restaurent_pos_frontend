@@ -20,6 +20,7 @@ const Orderlist = () => {
       .then((resp) => {
         setOrders(resp.data.orders);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handlePrintBill = (orderId) => {
